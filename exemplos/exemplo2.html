@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Segunda Aula - Controllers</title>
+	<meta charset="UTF-8">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>	
+</head>
+<body>
+	<div ng-app="meuApp" ng-controller="meuPrimeiroController">
+		<p><strong>Primeiro Nome: </strong> <span ng-bind="alunos.primeiroNome"></span> </p>
+		<p><strong>Segundo Nome: </strong> <span ng-bind="alunos.segundoNome"></span> </p>
+		
+		<p><strong>Nome Completo: </strong> {{ alunos.nomeCompleto() }} </p>
+
+		<hr />
+
+		<p><strong>Trocar meu Nome: </strong> <input type="text" ng-model="alunos.trocarPrimeiroNome"></p>
+		<p><strong>Trocar meu Sobre Nome: </strong> <input type="text" ng-model="alunos.trocarSegundoNome"></p>
+
+		<button ng-click="alunos.trocarNome()">Trocar nome</button>
+	</div>
+
+	<script>
+		var meuApp = angular.module('meuApp', []);
+		meuApp.controller('meuPrimeiroController', function($scope){
+			$scope.alunos = {
+				primeiroNome: "Itamar",
+				segundoNome: "Lourenço",
+
+				nomeCompleto: function(){
+					return $scope.alunos.primeiroNome + " " + $scope.alunos.segundoNome;
+				},
+
+				trocarNome: function(){
+					$scope.alunos.primeiroNome = $scope.alunos.trocarPrimeiroNome;
+					$scope.alunos.segundoNome = $scope.alunos.trocarSegundoNome;
+				}
+			};
+		});
+	</script>
+</body>
+</html>

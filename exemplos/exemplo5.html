@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Primeira Aula - Manipulando DOM</title>
+	<meta charset="UTF-8">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>	
+</head>
+<body>
+	<div ng-app>
+		<p>
+			<input type="checkbox" ng-model="ativarDesativarButton" /> Desativar Botão 
+			<button ng-disabled="ativarDesativarButton">Clique Me</button>
+		</p>
+		<p>
+			<input type="checkbox" ng-model="mostrarBotao" /> Mostrar Botão
+			<button ng-show="mostrarBotao">Clique Me</button>
+		</p>
+		<p>
+			<input type="checkbox" ng-model="esconderBotao" /> Esconder Botão
+			<button ng-hide="esconderBotao">Clique Me</button>
+		</p>
+
+		<p>
+			Total Clicado: {{totalClicado}} <br />
+			<button ng-click="totalClicado = totalClicado+1" ng-hide="totalClicado >= 10">Contar</button>
+		</p>
+	</div>
+</body>
+</html>

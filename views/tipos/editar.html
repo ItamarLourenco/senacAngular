@@ -1,0 +1,14 @@
+<button ng-click="listaTipos()">Tipos</button>
+<header>
+	<h3>Adicionar Tipo</h3>
+	<form name="myForm">
+
+		<p>
+			<input name="nome" ng-model="tipo.label" type= "text" class= "form-control" placeholder="Titulo" />
+		</p>
+
+
+		<button ng-remove="editar_tipo" ng-hide="editar_tipo" ng-click="salvarTipo(tipo);">Salvar Titulo</button>
+		<button ng-show="editar_tipo" ng-click="editarTipo(tipo);">Editar Notítcia</button>
+	</form>
+</header>

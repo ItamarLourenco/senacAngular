@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Primeira Aula - Um pouco de stylos</title>
+	<meta charset="UTF-8">
+	<style>
+	   table, th , td {
+	      border: 1px solid grey;
+	      border-collapse: collapse;
+	      padding: 5px;
+	   }
+	   
+	   table tr:nth-child(odd) {
+	      background-color: #f2f2f2;
+	   }
+
+	   table tr:nth-child(even) {
+	      background-color: #ffffff;
+	   }
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>	
+	<script>
+		var meuApp = angular.module('meuApp', []);
+		meuApp.controller("meuController", function($scope){
+			$scope.alunos = [
+				{
+					nome: "Itamar",
+					sobrenome: "Lourenco"
+				},
+				{
+					nome: "Manolo",
+					sobrenome: "Silva"
+				},
+				{
+					nome: "Chaps",
+					sobrenome: "Maluco"
+				},
+				{
+					nome: "Chaps2",
+					sobrenome: "Maluco2"
+				},
+				{
+					nome: "Chaps2",
+					sobrenome: "Maluco2"
+				},
+				{
+					nome: "Chaps2",
+					sobrenome: "Maluco2"
+				},
+				{
+					nome: "Chaps2",
+					sobrenome: "Maluco2"
+				},
+			];
+		});
+	</script>
+</head>
+<body>
+	<div ng-app="meuApp" ng-controller="meuController">
+		<p>Buscar: <input type='text' ng-model="filterNome" /></p>
+
+		<table border="1">
+			<tr>
+				<th>Nome</th>
+				<th>Sobre Nome</th>
+			</tr>
+			<tbody ng-repeat="aluno in alunos | filter:filterNome | orderBy:nome:true">
+				<tr>
+					<td>{{aluno.nome}}</td>
+					<td>{{aluno.sobrenome}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<button ng-click="listaNoticias()">Noticias</button>
+<header>
+	<h3>Adicionar Notícias</h3>
+	<form name="myForm">
+
+		<p>
+			<select ng-model="noticia.tipo">
+				<option ng-repeat="tipo in tipos" value="{{tipo.id}}">{{tipo.label}}</option>
+			</select>
+		</p>
+
+		<p>
+			<input name="nome" ng-model="noticia.titulo" type= "text" class= "form-control" placeholder="titulo" />
+		</p>
+
+		<p>
+			<input name="nome" ng-model="noticia.resumo" type= "text" class= "form-control" placeholder="resumo" />
+		</p>
+
+		<p>
+			<input name="nome" ng-model="noticia.texto" type= "text" class= "form-control" placeholder="texto" />
+		</p>
+
+		<p>
+			<input name="nome" ng-model="noticia.imagem" type= "text" class= "form-control" placeholder="imagem" />
+		</p>
+
+		<p>
+			<input name="nome" ng-model="noticia.destaque" type= "text" class= "form-control" placeholder="destaque" />
+		</p>
+
+		<button ng-remove="editar_noticias" ng-hide="editar_noticias" ng-click="salvarNoticia(noticia);">Salvar Notítcia</button>
+		<button ng-show="editar_noticias" ng-click="editarNoticia(noticia);">Editar Notítcia</button>
+	</form>
+</header>

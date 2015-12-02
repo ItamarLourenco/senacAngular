@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Primeira Aula - Includes</title>
+	<meta charset="UTF-8">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>	
+	<script>
+		angular.module("meuApp", []).controller("meuController", function($scope){
+			$scope.alunos = [
+				{
+					nome: "Itamar",
+					sobreNome: "Lourenço",
+				},
+				{
+					nome: "Itamar 2",
+					sobreNome: "Lourenço 2",
+				},
+				{
+					nome: "Itamar3",
+					sobreNome: "Lourenço3",
+				}
+			];
+
+			$scope.alunos2 = [
+				{
+					nome: "Manolo",
+					sobreNome: "Da Silva",
+				},
+				{
+					nome: "Manolo 2",
+					sobreNome: "Da Silva 2",
+				},
+				{
+					nome: "Manolo 3",
+					sobreNome: "Da Silva 3",
+				}
+			];
+		});
+	</script>
+</head>
+<body ng-app="meuApp">
+	<div ng-include="'includes/teste_1.html'"></div>
+
+	<div ng-controller="meuController">
+		<div ng-include="'includes/mostrar_alunos.html'" ng-repeat="aluno in alunos2"> </div>
+	</div>
+</body>
+</html>

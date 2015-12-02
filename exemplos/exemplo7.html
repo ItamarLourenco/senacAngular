@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Primeira Aula - Ajax</title>
+   <meta charset="UTF-8">
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>  
+   <script>
+      angular.module("meuApp", []).controller("meuController", function($scope, $http){
+         var url = "ajax/items.php";
+         $scope.items = null;
+         $scope.mostrar = false;
+
+         $scope.buscarItems = function(){
+            $scope.mostrar = true;
+            $http.get(url).success(function(resposta){
+               $scope.mostrar = false;
+               $scope.items = resposta;
+            });
+         }
+      });
+   </script>
+</head>
+<body ng-app="meuApp" ng-controller="meuController">
+
+   <div ng-show="mostrar">
+      <img src="http://loading.io/assets/img/hourglass.svg" />
+      Carregando...
+   </div>
+
+   <div ng-repeat="item in items">
+      <table>
+         <tr>
+            <td><strong>Nome: </strong>{{item.Name}}</td>
+            <td><strong>RollNo: </strong>{{item.RollNo}}</td>
+            <td><strong>Porcentagem: </strong>{{item.Percentage}}</td>
+         </tr>
+      </table>
+   </div>
+
+   <button ng-click="buscarItems()">Buscar Items</button>
+</body>
+</html>

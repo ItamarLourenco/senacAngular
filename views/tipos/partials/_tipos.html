@@ -1,0 +1,19 @@
+<table>
+	<thead>
+		<tr>
+			<th>Identificador</th>
+			<th>Tipo</th>
+			<th>Ação</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="tipo in tipos">
+			<td>{{tipo.id}}</td>
+			<td>{{tipo.label}}</td>
+			<td>
+				<a href="#/editar-tipo/{{tipo.id}}">Editar</a> |
+				<a href="javascript:;" ng-click="deletarTipo(tipo)">Apagar</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
