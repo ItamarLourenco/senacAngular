@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html ng-app="senacNoticias">
 <head>
-	<title>Primeira Aula - Conheçendo o Angular</title>
+	<title>Projeto Senac Noticias</title>
 	<meta charset="UTF-8">
+	<link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-	<div class="container">
-		<div ng-view="" id="ng-view"></div>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="logo">
+						<h1><a href="#/">Notícias Senac</a></h1>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="input-group form">
+								<input type="text" class="form-control" placeholder="Procurar...">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="page-content">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="sidebar content-box" style="display: block;" ng-include="'views/main/_nav.html'">
+				</div>
+			</div>
+
+			<div class="col-md-10">
+				<div class="container">
+					<div ng-view="" id="ng-view"></div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<script src="scripts/vendor/angular.min.js"></script>

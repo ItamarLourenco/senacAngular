@@ -27,7 +27,16 @@ class Noticias extends PDOSenacExample{
 
 	public function all($where = "", $limit = 20)
 	{
-		$sql = "SELECT * FROM {$this->table} n INNER JOIN tipo t ON n.tipo = t.id LIMIT $limit";
+		$sql = "SELECT 
+					n.id As id, 
+					data_db, 
+					tipo, titulo, 
+					resumo, 
+					texto, 
+					imagem, 
+					destaque,
+					label
+				FROM {$this->table} n INNER JOIN tipo t ON n.tipo = t.id LIMIT $limit";
 		return $this->execute($sql);
 	}
 

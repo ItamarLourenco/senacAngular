@@ -1,29 +1,46 @@
-<table>
-	<thead>
-		<tr>
-			<th>Tipo</th>
-			<th>Titulo</th>
-			<th>Resumo</th>
-			<th>Texto</th>
-			<th>Imagem</th>
-			<th>Em Destaque?</th>
-			<th>Data</th>
-			<th>Ação</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr ng-repeat="noticia in noticias">
-			<td>{{noticia.label}}</td>
-			<td>{{noticia.titulo}}</td>
-			<td>{{noticia.resumo}}</td>
-			<td>{{noticia.texto}}</td>
-			<td>{{noticia.imagem}}</td>
-			<td>{{noticia.destaque}}</td>
-			<td>{{noticia.data_db}}</td>
-			<td>
-				<a href="#/editar-noticia/{{noticia.id}}">Editar</a> |
-				<a href="javascript:;" ng-click="deletarNoticia(noticia)">Apagar</a>
-			</td>
-		</tr>
-	</tbody>
-</table>
+<div class="col-md-12">
+	<div class="content-box-large">
+		<div class="panel-heading">
+			<div class="panel-title">Notícias</div>
+
+			<div class="panel-options">
+				<a href="#/adicionar-noticia" data-rel="collapse">
+					Adicionar Nova Notícia
+					<i class="glyphicon glyphicon-plus"></i>
+				</a>
+
+			</div>
+		</div>
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Tipo</th>
+						<th>Titulo</th>
+						<th>Resumo</th>
+						<th>Texto</th>
+						<th>Imagem</th>
+						<th>Em Destaque?</th>
+						<th>Data</th>
+						<th>Ação</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="noticia in noticias">
+						<td>{{noticia.label}}</td>
+						<td>{{noticia.titulo}}</td>
+						<td>{{noticia.resumo}}</td>
+						<td>{{noticia.texto}}</td>
+						<td>{{noticia.imagem}}</td>
+						<td>{{noticia.destaque}}</td>
+						<td>{{noticia.data_db}}</td>
+						<td>
+							<a href="#/editar-noticia/{{noticia.id}}">Editar</a> |
+							<a href="javascript:;" ng-click="deletarNoticia(noticia)">Apagar</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

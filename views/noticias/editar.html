@@ -1,35 +1,80 @@
-<button ng-click="listaNoticias()">Noticias</button>
-<header>
-	<h3>Adicionar Notícias</h3>
-	<form name="myForm">
+<div class="col-md-6">
+	<div class="content-box-large">
+		<div class="panel-heading">
+			<div class="panel-title">Adicionar Notícias</div>
+		</div>
 
-		<p>
-			<select ng-model="noticia.tipo">
-				<option ng-repeat="tipo in tipos" value="{{tipo.id}}">{{tipo.label}}</option>
-			</select>
-		</p>
+		<div class="panel-body">
+			<form class="form-horizontal" name="myForm" class="form-horizontal">
 
-		<p>
-			<input name="nome" ng-model="noticia.titulo" type= "text" class= "form-control" placeholder="titulo" />
-		</p>
+				<div class="form-group">
+					<label for="tipos" class="col-sm-2 control-label">Tipos</label>
+					<div class="col-sm-10">
+						<select ng-model="noticia.tipo" id="tipos">
+							<option ng-repeat="tipo in tipos" value="{{tipo.id}}">{{tipo.label}}</option>
+						</select>
+					</div>
+				</div>
 
-		<p>
-			<input name="nome" ng-model="noticia.resumo" type= "text" class= "form-control" placeholder="resumo" />
-		</p>
+				<div class="form-group">
+					<label for="titulo" class="col-sm-2 control-label">Titulo</label>
+					<div class="col-sm-10">
+						<input id="titulo" name="titulo" ng-model="noticia.titulo" type= "text" class= "form-control" placeholder="Titulo" />
+					</div>
+				</div>
 
-		<p>
-			<input name="nome" ng-model="noticia.texto" type= "text" class= "form-control" placeholder="texto" />
-		</p>
+				<div class="form-group">
+					<label for="resumo" class="col-sm-2 control-label">Resumo</label>
+					<div class="col-sm-10">
+						<input id="resumo" name="resumo" ng-model="noticia.resumo" type= "text" class= "form-control" placeholder="Resumo" />
+					</div>
+				</div>
 
-		<p>
-			<input name="nome" ng-model="noticia.imagem" type= "text" class= "form-control" placeholder="imagem" />
-		</p>
+				<div class="form-group">
+					<label for="texto" class="col-sm-2 control-label">Texto</label>
+					<div class="col-sm-10">
+						<textarea name="texto" ng-model="noticia.texto" type= "text" class= "form-control" placeholder="Texto">
+						</textarea>
+					</div>
+				</div>
 
-		<p>
-			<input name="nome" ng-model="noticia.destaque" type= "text" class= "form-control" placeholder="destaque" />
-		</p>
+				<div class="form-group">
+					<label for="imagem" class="col-sm-2 control-label">Imagem</label>
+					<div class="col-sm-10">
+						<input name="imagem" ng-model="noticia.imagem" type= "text" class= "form-control" placeholder="Imagem" />
+					</div>
+				</div>
 
-		<button ng-remove="editar_noticias" ng-hide="editar_noticias" ng-click="salvarNoticia(noticia);">Salvar Notítcia</button>
-		<button ng-show="editar_noticias" ng-click="editarNoticia(noticia);">Editar Notítcia</button>
-	</form>
-</header>
+				<div class="form-group">
+					<label for="destaque" class="col-sm-2 control-label">Destaque</label>
+					<div class="col-sm-10">
+						<input name="destaque" ng-model="noticia.destaque" type= "text" class= "form-control" placeholder="Destaque" />
+					</div>
+				</div>
+
+				<br />
+				<div class="form-group">
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-primary" ng-remove="editar_noticias" ng-hide="editar_noticias" ng-click="salvarNoticia(noticia);">Salvar Notítcia</button>
+
+						<button type="submit" class="btn btn-primary" ng-show="editar_noticias" ng-click="editarNoticia(noticia);">Editar Notítcia</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-6">
+	<div class="content-box-large">
+		
+		<div class="panel-body">
+			<h2>{{noticia.titulo}}</h2>
+
+			<p>{{noticia.resumo | limitTo:10}} ...</p>
+			<p>{{noticia.texto}}</p>
+
+			<img src="{{noticia.imagem}}" class="img-responsive" />
+		</div>
+	</div>
+</div>
